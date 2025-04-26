@@ -91,7 +91,7 @@ public class RestPatientController {
 
 
     @GetMapping("/paginated2")
-    public Page<Patient> getPaginatedPatientstest(
+    public Page<Patient> getPaginatedPatientstestw(
             @RequestParam(defaultValue = "0") int page,
             @RequestParam(defaultValue = "5") int size) {
         log.info("Fetching paginated patients - page: {}, size: {}", page, size);

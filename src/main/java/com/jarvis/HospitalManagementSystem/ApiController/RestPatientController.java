@@ -26,6 +26,7 @@ public class RestPatientController {
     public List<Patient> getAllPatients() {
         log.info("Fetching all patients...");
         return patientService.getAllPatients();
+        //from hm_2 local
     }
 
     // Get patient by ID

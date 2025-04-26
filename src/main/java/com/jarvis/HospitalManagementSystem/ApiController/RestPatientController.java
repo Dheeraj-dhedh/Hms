@@ -3,7 +3,11 @@ package com.jarvis.HospitalManagementSystem.ApiController;
 import com.jarvis.HospitalManagementSystem.ApiEntity.Patient;
 import com.jarvis.HospitalManagementSystem.ApiServices.RestPatientService;
 import lombok.Data;
+//import lombok.extern.log4j.Log4j2;
+//import org.slf4j.Logger;
 import lombok.extern.log4j.Log4j2;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.data.domain.Page;
@@ -17,6 +21,8 @@ import java.util.List;
 @Log4j2
 @Data
 public class RestPatientController {
+
+    //private static final Logger log = LoggerFactory.getLogger(RestPatientController.class);
 
     @Autowired
     private RestPatientService patientService;
@@ -75,6 +81,14 @@ public class RestPatientController {
         log.info("Fetching paginated patients - page: {}, size: {}", page, size);
         return patientService.getPatientsWithPagination(page, size);
     }
+
+    @DeleteMapping("/{id}/2")
+    public String deletePatient2(@PathVariable Long id) {
+        log.warn("Deleting patient with ID: {}", id);
+        patientService.deletePatientById(id);
+        return "Patient deleted successfully with ID: " + id;
+    }
+
 
     @GetMapping("/paginated2")
     public Page<Patient> getPaginatedPatientstest(

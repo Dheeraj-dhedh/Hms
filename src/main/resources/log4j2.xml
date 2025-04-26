@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+    <Appenders>
+        <!-- Console output -->
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+        </Console>
+
+        <!-- File output -->
+        <File name="MyFileLogger" fileName="D:\JAVA\Springboot\HospitalManagementSystem\HospitalManagementSystem\Logs\hms.log" append="true">
+            <PatternLayout>
+                <Pattern>%d{yyyy-MM-dd HH:mm:ss} [%t] %-5p %c{1} - %m%n</Pattern>
+            </PatternLayout>
+        </File>
+    </Appenders>
+
+    <Loggers>
+        <!-- Set logging level -->
+        <Root level="info">
+            <AppenderRef ref="Console"/>
+            <AppenderRef ref="MyFileLogger"/>
+        </Root>
+    </Loggers>
+</Configuration>
